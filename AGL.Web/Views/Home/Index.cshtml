@@ -1,0 +1,28 @@
+﻿@model IEnumerable<AGL.Web.Model.PetGroupModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<table class="clients-table">
+    @if (Model != null && Model.Count() > 0)
+    {
+        foreach (var client in Model)
+        {
+            // Create the list of these clients
+            <tr>
+                <td>@client.Gender</td>
+                <td>
+                    <ul>
+                        @foreach (var pet in @client.Pets)
+                        {
+                            <li>
+                                @pet.Name
+                            </li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+        }
+    }
+</table>
